@@ -1,4 +1,6 @@
-#!/usr/bin/nodejs
-import {name} from '..';
+#!/usr/bin/env node
+
+import {plName} from '..';
+
 console.log('Welcome to the Brain Games!');
-console.log(name());
+console.log(plName());
