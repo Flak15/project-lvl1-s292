@@ -1,0 +1,29 @@
+{
+  "name": "braingamesfk15",
+  "version": "1.0.3",
+  "description": "hexlet-project1",
+  "main": "index.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "flak15",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "*",
+    "babel-preset-stage-0": "*"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  }
+}
