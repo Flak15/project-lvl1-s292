@@ -1,6 +1,6 @@
 {
   "name": "braingamesfk15",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "hexlet-project1",
   "bin": {
     "brain-games": "dist/bin/brain-games.js"
@@ -8,6 +8,11 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flak15/project-lvl1-s292.git"
+  },
+  "keywords": ["brain-games", "hexlet", "project", "lvl1"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
