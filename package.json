@@ -12,7 +12,12 @@
     "type": "git",
     "url": "git+https://github.com/Flak15/project-lvl1-s292.git"
   },
-  "keywords": ["brain-games", "hexlet", "project", "lvl1"],
+  "keywords": [
+    "brain-games",
+    "hexlet",
+    "project",
+    "lvl1"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
