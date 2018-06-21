@@ -9,7 +9,7 @@ export const askPlayerName = () => {
 export const askQuestion = (question, answer) => {
   console.log(`Question: ${question}`);
   const playerAnswer = readlineSync.question('Your answer: ');
-  if (playerAnswer === answer) {
+  if (playerAnswer == answer) {
     console.log('Correct!');
     return true;
   }
