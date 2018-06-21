@@ -6,7 +6,7 @@ export const askPlayerName = () => {
   return playerName;
 };
 
-const askQuestion = (question, answer) => {
+export const askQuestion = (question, answer) => {
   console.log(`Question: ${question}`);
   const playerAnswer = readlineSync.question('Your answer: ');
   if (playerAnswer === answer) {
@@ -27,4 +27,5 @@ export const gameEven = () => {
     if (askQuestion(question, isEven(question) ? 'yes' : 'no')) { return playRound(roundsCount - 1); }
     return `Lets try again, ${name}!`;
   };
+  playRound(3);
 };
