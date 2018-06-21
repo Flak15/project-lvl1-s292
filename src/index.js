@@ -18,6 +18,7 @@ const askQuestion = (question, answer) => {
 };
 
 export const gameEven = () => {
+  console.log('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no"\n');
   const name = askPlayerName();
   const isEven = number => number % 2 === 0;
   const playRound = (roundsCount) => {
