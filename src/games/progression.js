@@ -23,7 +23,7 @@ const generateQuestion = () => {
       startNumber + (indexOfProgressionElem * step)];
   };
   const correctAnswer = (startNumber + (unknownNumberIndex * step)).toString();
-  const question = generateProgression(progressionLength);
+  const question = generateProgression(progressionLength).join(' ');
   return [question, correctAnswer];
 };
 
