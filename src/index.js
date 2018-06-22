@@ -23,7 +23,7 @@ const askQuestion = (question, answer) => {
 };
 
 export const generateNumber = (minNumber, maxNumber) =>
-  Math.floor(Math.random() * ((maxNumber - minNumber) + minNumber));
+  Math.floor((Math.random() * (maxNumber - minNumber)) + minNumber);
 
 
 const numberOfRounds = 3;
