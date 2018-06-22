@@ -1,22 +1,24 @@
-import { game } from '..';
+import { game, generateNumber } from '..';
+
+const minQuestionNumber = 1;
+const maxQuestionNumber = 50;
 
 const questions = [
   ['*', (x, y) => x * y],
   ['-', (x, y) => x - y],
   ['+', (x, y) => x + y],
 ];
-const rules = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const generateQuestion = (roundNum) => {
-  const number1 = Math.floor(Math.random() * 20);
-  const number2 = Math.floor(Math.random() * 10);
-  const [sign] = questions[roundNum - 1];
-  const [, calcAnswerFunc] = questions[roundNum - 1];
+  const number1 = generateNumber(minQuestionNumber, maxQuestionNumber);
+  const number2 = generateNumber(minQuestionNumber, maxQuestionNumber);
+  const [sign, calcAnswerFunc] = questions[roundNum - 1];
   const question = `${number1} ${sign} ${number2}`;
   const correctAnswer = calcAnswerFunc(number1, number2).toString();
   return [question, correctAnswer];
 };
 
-const gameCalc = () => game(generateQuestion, rules);
+const gameCalc = () => game(generateQuestion, description);
 
 export default gameCalc;
