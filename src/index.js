@@ -1,5 +1,10 @@
 import readlineSync from 'readline-sync';
 
+export const printGreetings = (rules) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(rules);
+};
+
 export const askPlayerName = () => {
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!`);
@@ -9,7 +14,7 @@ export const askPlayerName = () => {
 export const askQuestion = (question, answer) => {
   console.log(`Question: ${question}`);
   const playerAnswer = readlineSync.question('Your answer: ');
-  if (playerAnswer == answer) {
+  if (playerAnswer === answer) {
     console.log('Correct!');
     return true;
   }
@@ -17,15 +22,25 @@ export const askQuestion = (question, answer) => {
   return false;
 };
 
-export const gameEven = () => {
-  console.log('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no"\n');
+export const game = (questionGenerateFunc, rules) => {
+  printGreetings(rules);
   const name = askPlayerName();
-  const isEven = number => number % 2 === 0;
   const playRound = (roundsCount) => {
-    const question = Math.floor(Math.random() * 100);
-    if (roundsCount === 0) return console.log(`Congratulations, ${name}!`);
-    if (askQuestion(question, isEven(question) ? 'yes' : 'no')) { return playRound(roundsCount - 1); }
-    return `Lets try again, ${name}!`;
+    if (roundsCount === 0) {
+      const congratulate = `Congratulations, ${name}!`;
+      console.log(congratulate);
+      return;
+    }
+    const questionAndAnswerArr = questionGenerateFunc(roundsCount);
+    const [question] = questionAndAnswerArr;
+    const [, correctAnswer] = questionAndAnswerArr;
+    if (askQuestion(question, correctAnswer)) {
+      playRound(roundsCount - 1);
+    } else {
+      const tryAgain = `Lets try again, ${name}!`;
+      console.log(tryAgain);
+    }
   };
-  playRound(3);
+  const numberOfRounds = 3;
+  return playRound(numberOfRounds);
 };

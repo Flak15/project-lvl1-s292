@@ -1,6 +1,6 @@
 {
   "name": "braingamesfk15",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "description": "hexlet-project1",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
