@@ -1,4 +1,5 @@
-import { game, generateNumber } from '..';
+import game from '..';
+import generateNumber from '../utils';
 
 const minQuestionNumber = 100;
 const maxQuestionNumber = 10000;
@@ -16,13 +17,13 @@ const balanceNum = (num) => {
 
 const description = 'Balance the given number';
 
-const generateQuestion = () => {
+const makeQuestionAndAnswer = () => {
   const number = generateNumber(minQuestionNumber, maxQuestionNumber);
   const question = `${number}`;
   const correctAnswer = balanceNum(number);
   return [question, correctAnswer];
 };
 
-const gameBalance = () => game(generateQuestion, description);
+const gameBalance = () => game(makeQuestionAndAnswer, description);
 
 export default gameBalance;

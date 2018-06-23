@@ -1,4 +1,5 @@
-import { game, generateNumber } from '..';
+import game from '..';
+import generateNumber from '../utils';
 
 const progressionLength = 10;
 const minStartNumber = 3;
@@ -10,7 +11,7 @@ const maxIndexUnknownNumber = 10;
 
 const description = 'What number is missing in this progression?';
 
-const generateQuestion = () => {
+const makeQuestionAndAnswer = () => {
   const startNumber = generateNumber(minStartNumber, maxStartNumber);
   const step = generateNumber(minStep, maxStep);
   const unknownNumberIndex = generateNumber(minIndexUnknownNumber, maxIndexUnknownNumber);
@@ -27,6 +28,6 @@ const generateQuestion = () => {
   return [question, correctAnswer];
 };
 
-const gameProgression = () => game(generateQuestion, description);
+const gameProgression = () => game(makeQuestionAndAnswer, description);
 
 export default gameProgression;

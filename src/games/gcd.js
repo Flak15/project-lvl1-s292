@@ -1,4 +1,5 @@
-import { game, generateNumber } from '..';
+import game from '..';
+import generateNumber from '../utils';
 
 const description = 'Find the greatest common divisor of given numbers';
 
@@ -6,16 +7,11 @@ const minQuestionNumber = 4;
 const maxQuestionNumber = 100;
 
 const gcd = (num1, num2) => {
-  const findDivisors = (divisor) => {
-    if (divisor === 0) return '';
-    if (num1 % divisor === 0) { return [divisor, ...findDivisors(divisor - 1)]; }
-    return findDivisors(divisor - 1);
-  };
-  const divisorsArr = [num1, ...findDivisors(Math.floor(num1 / 2))];
-  return divisorsArr.find(div => num2 % div === 0);
+  if (num2 === 0) return num1;
+  return gcd(num2, num1 % num2);
 };
 
-const generateQuestion = () => {
+const makeQuestionAndAnswer = () => {
   const number1 = generateNumber(minQuestionNumber, maxQuestionNumber);
   const number2 = generateNumber(minQuestionNumber, maxQuestionNumber);
   const question = `${number1} ${number2}`;
@@ -23,6 +19,6 @@ const generateQuestion = () => {
   return [question, correctAnswer];
 };
 
-const gameGCD = () => game(generateQuestion, description);
+const gameGCD = () => game(makeQuestionAndAnswer, description);
 
 export default gameGCD;

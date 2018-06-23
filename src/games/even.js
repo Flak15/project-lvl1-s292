@@ -1,4 +1,5 @@
-import { game, generateNumber } from '..';
+import game from '..';
+import generateNumber from '../utils';
 
 const isEven = number => number % 2 === 0;
 
@@ -7,12 +8,12 @@ const maxQuestionNumber = 100;
 
 const description = 'Answer "yes" if number even otherwise answer "no"';
 
-const generateQuestion = () => {
+const makeQuestionAndAnswer = () => {
   const question = generateNumber(minQuestionNumber, maxQuestionNumber);
   const correctAnswer = isEven(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
-const gameEven = () => game(generateQuestion, description);
+const gameEven = () => game(makeQuestionAndAnswer, description);
 
 export default gameEven;
