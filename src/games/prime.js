@@ -4,7 +4,7 @@ import generateNumber from '../utils';
 const isPrime = (number) => {
   if (number < 2) return false;
   const iter = (divisor) => {
-    if (divisor > Math.sqrt(num)) return true;
+    if (divisor > Math.sqrt(number)) return true;
     if (number % divisor === 0) return false;
     return iter(number, divisor + 1);
   };
