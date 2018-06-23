@@ -2,10 +2,11 @@ import game from '..';
 import generateNumber from '../utils';
 
 const isPrime = (number) => {
-  const iter = (num, divisor) => {
-    if (num % divisor === 0) return false;
+  if (number < 2) return false;
+  const iter = (divisor) => {
     if (divisor > Math.sqrt(num)) return true;
-    return iter(num, divisor + 1);
+    if (number % divisor === 0) return false;
+    return iter(number, divisor + 1);
   };
   return iter(number, 2);
 };
