@@ -6,9 +6,9 @@ const isPrime = (number) => {
   const iter = (divisor) => {
     if (divisor > Math.sqrt(number)) return true;
     if (number % divisor === 0) return false;
-    return iter(number, divisor + 1);
+    return iter(divisor + 1);
   };
-  return iter(number, 2);
+  return iter(2);
 };
 
 const minQuestionNumber = 1;
